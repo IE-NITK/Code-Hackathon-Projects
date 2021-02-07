@@ -1,0 +1,101 @@
+<!DOCTYPE html>{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ansetzan</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <a href='/logout' style="color:white; float:right"> Logout </a>
+    <div class="container">
+      <div class="header-left">
+          <a href="landingPage.html" style="color: aliceblue;text-decoration: none;"> <img class="logo"  src="{% static 'img/ielogo.jpeg' %}" alt="Logo"></a>
+      </div>
+      
+    </div>
+  </header>
+	
+  <div class="top-wrapper" background-image: src="../static/img.jpg";>
+    <div class="container">
+      <h1>Motto of the Club<br>The vision</h1>
+      <p>Few lines about IE.</p>
+    </div>
+  </div>
+  <div class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>Events</h2>
+        <p>“We learn more by looking for the answer to a question and not finding it than we do from learning the answer itself.”
+        </p>
+        <div class="container">
+
+
+          {% if not events %}
+          <h4> No event present as of now </h4>
+        
+          {% else %}
+          <!-- <form action = "/filter" method="POST">
+            {% csrf_token %}
+            
+               <select name="filter">
+                <option value="code">Code</option>
+                <option value="gadget">Gadget</option>
+                <option value="garage">Garage</option>
+                <option value="script">Script</option>
+                <option value="all">Open to All</option>
+               </select>
+          </form> -->
+          <div class="container mt-20">
+            {% for event in events%}
+            <div class="card my-5" style="box-shadow:10px 10px 5px grey; width: 30%; float: left; margin:1%">
+              <!-- <div class="card " style="width: 18rem; float:left;"> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{event.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{event.desc}}</h6>
+                  <p class="card-text"><strong>Sig is </strong> {{event.sig}} <br> <strong>Venue is </strong> {{event.venue}} <br> <strong>Date is</strong> {{event.date}}</p>
+                  {% for r in event.resources.all %}
+                  <a href="{{r.link}}" class="card-link">            
+                     {{r.name}} 
+                  </a>
+                  
+                  {% endfor %}
+                  <a href="{% url 'add_resource' event.id %}" class= "card-link">Add new resource</a>           
+                </div>
+              </div>
+            
+            {% endfor %}
+          </div>        
+            
+          {% endif %}
+        
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <br>
+  <br>
+  <br>
+
+  
+    
+
+<!-- 
+  <footer >
+    <div class="container" style="background-color: rgb(189, 217, 245);width: auto">
+      <img src="{% static '../static/ielogo.jpeg' %}" alt="Logo">
+      <p style="color: black;">Think before you speak, read before you speak.</p>
+      <div class="foot">
+      </div>
+    </div>
+      
+    
+  </footer> -->
+  <br>
+  <br>
+</body>
+</html>
