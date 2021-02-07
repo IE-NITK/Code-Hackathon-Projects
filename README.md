@@ -11,7 +11,7 @@ Our target is to make sure that the attendee is seen as a present student, we wi
 - [x] Presentation of a working output: We will record the working of the bot while it logs in the MS Teams and attend the class.
 - [x] Foolproof responses: Try to make the responses believable.
 - [x] Fetch class schedule from Google Calendar: The bot will join the class according to the schedule from the Google Calendar.
-- [ ] Messages will be sent regarding the working of bot: The bot will send a message when it joins or leaves the call along with the timestamp.
+- [x] Messages will be sent regarding the working of bot: The bot will send a message when it joins or leaves the call along with the timestamp.
 
 ## Optional Deliverables:
 - [x] Respond to attendance: The bot will respond to the attendance by sending a message in the chat section.
